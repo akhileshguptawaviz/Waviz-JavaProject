@@ -31,8 +31,32 @@ public class SignupServlet extends HttpServlet {
 		String hobbies=request.getParameter("hob");
 		String gender=request.getParameter("gender");
 		
+		
+		
 		SignupDao signupDao=new SignupDao();
-		signupDao.SignupConnection(userid, email, password, cpassword, address, hobbies, gender);
+		int LoginReturn=signupDao.SignupConnection(userid, email, password, cpassword,
+				address, hobbies, gender);
+		
+		
+		if(LoginReturn==1){
+		
+			
+		//	if(userid == ""||email==""||password==""||
+			//		cpassword==""||address==""||hobbies==""||gender=="")
+			{
+				
+				System.out.println("Welcome page run..");
+				
+				response.sendRedirect("welcome.jsp");
+						}
+		}
+		else {
+			System.out.println("Signup page run..");
+			response.sendRedirect("Signup.jsp");
+
+			
+		}
+		
 		
 		
 		/*

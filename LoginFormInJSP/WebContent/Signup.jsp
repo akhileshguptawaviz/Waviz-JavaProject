@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Signup Form</title>
+<script src="signupValidation.js" type="text/javascript"></script>
 </head>
 <body>
      <h1>Signup Form</h1>
-     <form action="Signup" method="get">
+     <form action="Signup" method="get" name="myForm">
         Full Name:<input type="text" name="uname" required><br>    
         Email:<input type="email"  name="mail" required><br>
         mobile:<input type="text"  name="mob" required><br>
@@ -37,7 +38,7 @@
            
     Gender: <input type="radio" name="gender" value="male" > Male<input type="radio" name="gender" value="female"> Female<br>
      
-     <input type="submit" value="Submit">
+     <input type="submit" value="Submit" onclick="validateForm()">
      <input type="reset" value="Reset"> 
  
      </form>

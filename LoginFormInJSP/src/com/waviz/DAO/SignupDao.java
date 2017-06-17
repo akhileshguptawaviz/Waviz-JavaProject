@@ -6,8 +6,9 @@ import java.sql.PreparedStatement;
 
 public class SignupDao {
 	
-	public void SignupConnection(String userid,String email
-			,String password,String cpassword,String address,String hobbies,String gender){
+	public int SignupConnection(String userid,String email
+			,String password,String cpassword,
+			String address,String hobbies,String gender){
 		try{  
 			   Class.forName("com.mysql.jdbc.Driver");  
 			   
@@ -26,15 +27,31 @@ public class SignupDao {
 			   ps.setString(7, gender);
 			  // ResultSet rs=ps.executeQuery();
 			   
-			   int i=ps.executeUpdate();
-			   if(i>0)
-			   {System.out.println("Reg success full");}
+			   if(userid == ""||email==""||password==""||
+						cpassword==""||address==""||hobbies==""||gender=="")
+			   {
+				   System.out.println("Some Field Are Empty in Form...");
+			   } 
+			   else{
+				   int i=ps.executeUpdate();
+			       System.out.println("Execute Update");   
+			       if(i>0){
+			       System.out.println("Reg success full");
+			    return 1;
+			   }else {
+				   System.out.println("Reg Values not store in databases");
+				   
+				   return 0;}
+			   }
 			   
-			  }catch(Exception e){e.printStackTrace();
+			  }catch(Exception e){e.printStackTrace();	
+			  System.out.println(e); 
 			  
-				 System.out.println(e);  
+			  //return 0;
+			 
 				 
-			  }  
+			  }
+		return 0;  
 	    
 	}
 

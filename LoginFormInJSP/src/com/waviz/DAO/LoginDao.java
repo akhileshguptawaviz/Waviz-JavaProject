@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginDao {
-public	void  connectionCode(String userid,String email,String password){
+public	int  connectionCode(String userid,String email,String password){
 		ResultSet rs=null;
 		
 		
@@ -28,13 +28,13 @@ public	void  connectionCode(String userid,String email,String password){
 			   {System.out.println("Reg success full");
 			  /// session.setAttribute("userName", rs.getString("user"));
 			    //response.sendRedirect("welcome.jsp");
-			   
+			   return 1;
 			   }
-			   
+			   else return 0;
 			  }catch(Exception e){e.printStackTrace();
 			  
 				 System.out.println(e);  
-				 
+				return 0; 
 			  }  
 	}
 

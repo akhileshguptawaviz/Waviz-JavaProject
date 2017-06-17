@@ -17,7 +17,11 @@
    <a href="Signup.jsp">New Register</a>
    </form>
 
+<% 
+String captchaResult= (String) request.getAttribute("captcha"); 
+%>
 
+<h3>Genrated Captcha:<%=captchaResult %>></h3>
 
 </body>
 </html>

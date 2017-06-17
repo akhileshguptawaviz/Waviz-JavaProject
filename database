@@ -1,0 +1,8 @@
+username=root
+password=root;
+dbName=form
+
+create table  signupform(userid varcahr(25),email varchar(25),password varchar(25),cpassword varchar(25),address varchar(25),hobbies varchar(25),gender varchar(25));
+
+select * from signupform;
+
